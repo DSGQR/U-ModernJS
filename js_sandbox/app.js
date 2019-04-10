@@ -1,16 +1,27 @@
-//  Log to console
+const num1 = 100;
+const num2 = 50;
+let val;
 
-console.log('What are you doing?')
-console.log(123)
-console.log(true)
-var greeting = 'Hello'
-console.log(greeting)
-console.log([1,2,3,4,5])
-console.log({a:1, b:2})
-console.table({a:1, b:2})
+// Simple math with numbers
+val = num1 + num2;
+val = num1 * num2;
+val = num1 - num2;
+val = num1 / num2;
+val = num1 % num2;
 
-console.error('This is some error')
-console.clear()
-console.warn('This is a warning!')
-console.time('Hello')
-console.timeEnd('Hello')
+// Math Object
+val = Math.PI;
+val = Math.E;
+val = Math.round(2.4);
+val = Math.ceil(2.4);
+val = Math.floor(2.8);
+val = Math.sqrt(64);
+val = Math.abs(-3);
+val = Math.pow(8, 2);
+val = Math.min(2,33,4,1,55,6,3,-2);
+val = Math.max(2,33,4,1,55,6,3,-2);
+val = Math.random();
+
+val = Math.floor(Math.random() * 20 + 1);
+
+console.log(val);
