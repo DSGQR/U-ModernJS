@@ -1,27 +1,39 @@
-const num1 = 100;
-const num2 = 50;
-let val;
+// document.getElementById()
 
-// Simple math with numbers
-val = num1 + num2;
-val = num1 * num2;
-val = num1 - num2;
-val = num1 / num2;
-val = num1 % num2;
+// console.log(document.getElementById('task-title'));
 
-// Math Object
-val = Math.PI;
-val = Math.E;
-val = Math.round(2.4);
-val = Math.ceil(2.4);
-val = Math.floor(2.8);
-val = Math.sqrt(64);
-val = Math.abs(-3);
-val = Math.pow(8, 2);
-val = Math.min(2,33,4,1,55,6,3,-2);
-val = Math.max(2,33,4,1,55,6,3,-2);
-val = Math.random();
+// // Get things from the element
+// console.log(document.getElementById('task-title').id);
+// console.log(document.getElementById('task-title').className);
 
-val = Math.floor(Math.random() * 20 + 1);
+// const taskTitle = document.getElementById('task-title');
 
-console.log(val);
+// // Change styling
+// taskTitle.style.background = '#333';
+// taskTitle.style.color = '#fff';
+// taskTitle.style.padding = '5px';
+// // taskTitle.style.display = 'none';
+
+// // Change content
+// taskTitle.textContent = 'Task List';
+// taskTitle.innerText = 'My Tasks';
+// taskTitle.innerHTML = '<span style="color:red">Task List</span>';
+
+// document.querySelector()
+
+console.log(document.querySelector('#task-title'));
+console.log(document.querySelector('.card-title'));
+console.log(document.querySelector('h5'));
+
+document.querySelector('li').style.color = 'red';
+document.querySelector('ul li').style.color = 'blue';
+
+document.querySelector('li:last-child').style.color = 'red';
+document.querySelector('li:nth-child(3)').style.color = 'yellow';
+document.querySelector('li:nth-child(4)').textContent = 'Hello World';
+document.querySelector('li:nth-child(odd)').style.background = '#ccc';
+document.querySelector('li:nth-child(even)').style.background = '#f4f4f4';
+
+
+
+
