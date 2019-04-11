@@ -1,51 +1,42 @@
-// document.getElementsByClassName
+const newHeading = document.createElement('h2')
+const oldHeading = document.getElementById('task-title')
+const cardAction = document.querySelector('.card-action')
 
-// const items = document.getElementsByClassName('collection-item');
-// console.log(items);
-// console.log(items[0]);
-// items[0].style.color = 'red';
-// items[3].textContent = 'Hello';
+newHeading.id = 'task-title'
 
-// const listItems = document.querySelector('ul').getElementsByClassName('collection-item');
+newHeading.appendChild(document.createTextNode('Task List'))
 
-// console.log(listItems);
+cardAction.replaceChild(newHeading, oldHeading)
 
-// document.getElementsByTagName
-// let lis = document.getElementsByTagName('li');
-// console.log(lis);
-// console.log(lis[0]);
-// lis[0].style.color = 'red';
-// lis[3].textContent = 'Hello';
+// console.log(newHeading)
 
-// // Conver HTML Collection into array
-// lis = Array.from(lis);
+const lis = document.querySelectorAll('li')
+const list = document.querySelector('ul')
 
-// lis.reverse();
+lis[0].remove()
 
-// lis.forEach(function(li, index){
-//   console.log(li.className);
-//   li.textContent = `${index}: Hello`;
-// });
+list.removeChild(lis[3])
 
-// console.log(lis);
+document.querySelector('li:first-child').children[0].className
 
-// document.querySelectorAll
-const items = document.querySelectorAll('ul.collection li.collection-item');
+const firstLi = document.querySelector('li:first-child')
+const link = firstLi.children[0]
 
-items.forEach(function(item, index){
-    item.textContent = `${index}: Hello`;
-});
+let val;
 
-const liOdd = document.querySelectorAll('li:nth-child(odd)');
-const liEven = document.querySelectorAll('li:nth-child(even)');
+val = link.className;
+val = link.classList
+val = link.classList[0]
 
-liOdd.forEach(function(li, index){
-  li.style.background = '#ccc';
-});
+link.classList.add('test')
+link.classList.remove('test')
+val = link
 
-for(let i = 0; i < liEven.length; i++){
-  liEven[i].style.background = '#f4f4f4';
-}
+val = link.getAttribute('href')
+val = link.setAttribute('href', 'http://google.com')
+link.setAttribute('title', 'Google')
+val = link.hasAttribute('title')
+val = link
+link.removeAttribute('title')
 
-
-console.log(items);
+console.log(val)
