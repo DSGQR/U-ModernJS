@@ -1,42 +1,28 @@
-const newHeading = document.createElement('h2')
-const oldHeading = document.getElementById('task-title')
-const cardAction = document.querySelector('.card-action')
+document.querySelector('.clear-tasks').addEventListener('click', onClick)
 
-newHeading.id = 'task-title'
+function onClick (e) {
+  // console.log('clicked')
 
-newHeading.appendChild(document.createTextNode('Task List'))
+  let val;
 
-cardAction.replaceChild(newHeading, oldHeading)
+  val = e
 
-// console.log(newHeading)
+  val = e.target
+  val = e.target.id
+  val = e.target.className
+  val = e.target.classList
 
-const lis = document.querySelectorAll('li')
-const list = document.querySelector('ul')
+  // e.target.innerText = 'Hello'
 
-lis[0].remove()
+  val = e.type
 
-list.removeChild(lis[3])
+  val = e.timeStamp
 
-document.querySelector('li:first-child').children[0].className
+  val = e.clientY
+  val = e.clientX
 
-const firstLi = document.querySelector('li:first-child')
-const link = firstLi.children[0]
-
-let val;
-
-val = link.className;
-val = link.classList
-val = link.classList[0]
-
-link.classList.add('test')
-link.classList.remove('test')
-val = link
-
-val = link.getAttribute('href')
-val = link.setAttribute('href', 'http://google.com')
-link.setAttribute('title', 'Google')
-val = link.hasAttribute('title')
-val = link
-link.removeAttribute('title')
-
-console.log(val)
+  val = e.offsetY
+  val = e.offsetX
+  
+  console.log(val)
+}
