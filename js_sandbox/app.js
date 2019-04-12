@@ -1,39 +1,31 @@
-const form = document.querySelector('form')
-const taskInput = document.getElementById('task')
-const heading = document.querySelector('h5')
-const select = document.querySelector('select')
+// document.querySelector('.card-title').addEventListener('click', function () {
+//   console.log('card title')
+// })
 
-taskInput.value = ''
+// document.querySelector('.card-content').addEventListener('click', function () {
+//   console.log('card content')
+// })
 
-// form.addEventListener('submit', runEvent)
+// document.querySelector('.card').addEventListener('click', function () {
+//   console.log('card')
+// })
 
-// Keydown
-// taskInput.addEventListener('keydown', runEvent)
-// Keyup
-// taskInput.addEventListener('keyup', runEvent)
-// Keypress
-// taskInput.addEventListener('keypress', runEvent)
-// Focus
-// taskInput.addEventListener('focus', runEvent)
-// blur
-// taskInput.addEventListener('blur', runEvent)
-// Cut
-// taskInput.addEventListener('cut', runEvent)
-// paste
-// taskInput.addEventListener('paste', runEvent)
-// Input 
-// taskInput.addEventListener('input', runEvent)
-//  Change
-select.addEventListener('change', runEvent)
+// document.querySelector('.col').addEventListener('click', function () {
+//   console.log('col')
+// })
 
-function runEvent(e) {
-  console.log(`EVENT TYPE: ${e.type}`)
+// Event Delegation
 
-  console.log(e.target.value)
+// const delItem = document.querySelector('.delete-item')
 
-  // heading.innerText = e.target.value
-  // console.log(taskInput.value)
+// delItem.addEventListener('click', deleteItem)
 
-  // e.preventDefault()
+document.body.addEventListener('click', deleteItem)
+
+function deleteItem(e) {
+  // console.log(e.target)
+  if (e.target.parentElement.classList.contains('delete-item')) {
+    console.log('Delete Item')
+    e.target.parentElement.parentElement.remove()
+  }
 }
-
