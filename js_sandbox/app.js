@@ -1,28 +1,31 @@
-document.querySelector('.clear-tasks').addEventListener('click', onClick)
+const clearBtn = document.querySelector('.clear-tasks')
+const card = document.querySelector('.card')
+const heading = document.querySelector('h5')
 
-function onClick (e) {
-  // console.log('clicked')
+// Click
+// clearBtn.addEventListener('click', runEvent)
+// Double Click
+// clearBtn.addEventListener('dblclick', runEvent)
+// Mousedown
+// clearBtn.addEventListener('mousedown', runEvent)
+// Mouseup
+// clearBtn.addEventListener('mouseup', runEvent)
+// mouseenter
+// card.addEventListener('mouseenter', runEvent)
+// mouseleave
+// card.addEventListener('mouseleave', runEvent)
+// mouseover
+// card.addEventListener('mouseover', runEvent)
+// mouseout
+// card.addEventListener('mouseout', runEvent)
+// mousemove
+card.addEventListener('mousemove', runEvent)
 
-  let val;
+// Event Handler 
+function runEvent(e) {
+  console.log(`EVENT TYPE: ${e.type}`)
 
-  val = e
+  heading.textContent = `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`
 
-  val = e.target
-  val = e.target.id
-  val = e.target.className
-  val = e.target.classList
-
-  // e.target.innerText = 'Hello'
-
-  val = e.type
-
-  val = e.timeStamp
-
-  val = e.clientY
-  val = e.clientX
-
-  val = e.offsetY
-  val = e.offsetX
-  
-  console.log(val)
+  document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 40)`
 }
