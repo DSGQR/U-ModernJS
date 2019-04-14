@@ -25,31 +25,31 @@ function loadEventListeners() {
 // Get Tasks From Local Storage
 function getTasks() {
   let tasks;
- if (localStorage.getItem('tasks') === null) {
-   tasks = [];
- } else {
-   tasks = JSON.parse(localStorage.getItem('tasks'))
- }
+  if (localStorage.getItem('tasks') === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'))
+  }
 
- tasks.forEach(function(task) {
-   // Create li Element
-  const li = document.createElement('li')
-  // Add class
-  li.className = 'collection-item'
-  // Create Text Node & Append To li 
-  li.appendChild(document.createTextNode(task))
-  // Create New Link Element
-  const link = document.createElement('a')
-  // Add class
-  link.className = 'delete-item secondary-content'
-  // Add Icon HTML
-  link.innerHTML = '<i class="fa fa-remove"></i>'
-  // Append The Link To li
-  li.appendChild(link)
+  tasks.forEach(function (task) {
+    // Create li Element
+    const li = document.createElement('li')
+    // Add class
+    li.className = 'collection-item'
+    // Create Text Node & Append To li 
+    li.appendChild(document.createTextNode(task))
+    // Create New Link Element
+    const link = document.createElement('a')
+    // Add class
+    link.className = 'delete-item secondary-content'
+    // Add Icon HTML
+    link.innerHTML = '<i class="fa fa-remove"></i>'
+    // Append The Link To li
+    li.appendChild(link)
 
-  // Append li to ul
-  taskList.appendChild(li)
- })
+    // Append li to ul
+    taskList.appendChild(li)
+  })
 }
 
 // Add Task Function
@@ -57,46 +57,45 @@ function addTask(event) {
   event.preventDefault()
   if (taskInput.value === '') {
     alert('Add A Task')
-  } 
+  } else {
+    // Create li Element
+    const li = document.createElement('li')
+    // Add class
+    li.className = 'collection-item'
+    // Create Text Node & Append To li 
+    li.appendChild(document.createTextNode(taskInput.value))
+    // Create New Link Element
+    const link = document.createElement('a')
+    // Add class
+    link.className = 'delete-item secondary-content'
+    // Add Icon HTML
+    link.innerHTML = '<i class="fa fa-remove"></i>'
+    // Append The Link To li
+    li.appendChild(link)
 
-  // Create li Element
-  const li = document.createElement('li')
-  // Add class
-  li.className = 'collection-item'
-  // Create Text Node & Append To li 
-  li.appendChild(document.createTextNode(taskInput.value))
-  // Create New Link Element
-  const link = document.createElement('a')
-  // Add class
-  link.className = 'delete-item secondary-content'
-  // Add Icon HTML
-  link.innerHTML = '<i class="fa fa-remove"></i>'
-  // Append The Link To li
-  li.appendChild(link)
+    // Append li to ul
+    taskList.appendChild(li)
 
-  // Append li to ul
-  taskList.appendChild(li)
+    // Store In Local Storage
+    storeTaskInLocalStorage(taskInput.value)
 
-  // Store In Local Storage
-  storeTaskInLocalStorage(taskInput.value)
-  
-  // Clear input
-  taskInput.value = ''
-
+    // Clear input
+    taskInput.value = ''
+  }
 }
 
 // Store Task Function 
 function storeTaskInLocalStorage(task) {
- let tasks;
- if (localStorage.getItem('tasks') === null) {
-   tasks = [];
- } else {
-   tasks = JSON.parse(localStorage.getItem('tasks'))
- }
+  let tasks;
+  if (localStorage.getItem('tasks') === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'))
+  }
 
- tasks.push(task);
+  tasks.push(task);
 
- localStorage.setItem('tasks', JSON.stringify(tasks))
+  localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
 // Remove Task Funciton 
@@ -114,19 +113,19 @@ function removeTask(event) {
 // Remove From Local Storage Function
 function removeTaskFromLocalStorage(taskItem) {
   let tasks;
- if (localStorage.getItem('tasks') === null) {
-   tasks = [];
- } else {
-   tasks = JSON.parse(localStorage.getItem('tasks'))
- }
-
- tasks.forEach(function(task, index) {
-  if (taskItem.textContent === task) {
-    tasks.splice(index, 1)
+  if (localStorage.getItem('tasks') === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'))
   }
- })
 
- localStorage.setItem('tasks', JSON.stringify(tasks))
+  tasks.forEach(function (task, index) {
+    if (taskItem.textContent === task) {
+      tasks.splice(index, 1)
+    }
+  })
+
+  localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
 // Clear All Tasks
@@ -134,7 +133,7 @@ function clearTasks(event) {
   // taskList.innerHTML = ''
 
   // Faster Method
-  while(taskList.firstChild) {
+  while (taskList.firstChild) {
     taskList.removeChild(taskList.firstChild)
   }
 
@@ -145,14 +144,14 @@ function clearTasks(event) {
 
 // Clear All Tasks From Local Storage Function
 function clearTasksFromLocalStorage() {
-   localStorage.clear()
+  localStorage.clear()
 }
 
 // Filter Tasks Function
 function filterTasks(event) {
   const text = event.target.value.toLowerCase()
 
-  document.querySelectorAll('.collection-item').forEach(function(task) {
+  document.querySelectorAll('.collection-item').forEach(function (task) {
     const item = task.firstChild.textContent
     if (item.toLowerCase().indexOf(text) != -1) {
       task.style.display = 'block'
