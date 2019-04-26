@@ -1,2 +1,2 @@
 # U-ModernJS
-Trvaery Media Content &amp; Practice
+Traversy Media Content &amp; Practice
