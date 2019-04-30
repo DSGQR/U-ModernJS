@@ -27,6 +27,30 @@ list.children[1].textContent = 'Hello'
 list.children[3].children[0].id = 'test-link'
 val = list.children[3].children[0]
 
-val = list.firstChild
+// First Child
+val = list.firstChild // Output: #text (node)
+val = list.firstElementChild
+
+// Last Child
+val = list.lastChild  // Output: #text (node)
+val = list.lastElementChild
+
+// Count child elements
+val = list.childElementCount
+
+// Get Parent Node
+val = listItem.parentNode
+val = listItem.parentElement //Usually The Same As Above Code
+val = listItem.parentElement.parentElement
+
+// Get Next Sibling
+val = listItem.nextSibling
+val = listItem.nextElementSibling
+val = listItem.nextElementSibling.nextElementSibling
+
+// Get Previous Sibling
+val = listItem.previousSibling
+val = listItem.previousElementSibling
+
 
 console.log(val)
