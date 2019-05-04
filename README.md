@@ -1,6 +1,8 @@
 # U-ModernJS
 #### [Traversy Media] Content &amp; Practice
+
 <br>
+
 #### CONTENT
 * <strong>Basics & Fundamentals:</strong> Data types, let & const variables, functions, conditionals, loops, object literals, arrays, etc
 * <strong>DOM Manipulation:</strong> Selectors, traversing the DOM, show/hide, creating & removing elements, event listeners
