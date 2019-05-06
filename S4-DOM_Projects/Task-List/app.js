@@ -9,17 +9,23 @@ const taskInput = document.querySelector('#task')
 loadEventListeners()
 
 // Load All Event Listeners 
-function loadEventListeners () {
+function loadEventListeners() {
   // Add task event
   form.addEventListener('submit', addTask)
+  // Remove task event
+  taskList.addEventListener('click', removeTask)
+  // Clear task event
+  clearBtn.addEventListener('click', clearTasks)
+  // Filter Tasks
+  filter.addEventListener('keyup', filterTasks)
 }
 
 // Add Task Function
-function addTask () {
+function addTask() {
   if (taskInput.value === '') {
     alert('Please Add A Task')
   }
-  
+
   // Create li element
   const li = document.createElement('li')
   // Add class
@@ -37,9 +43,46 @@ function addTask () {
 
   // Append li to ul
   taskList.appendChild(li)
-  
+
   // Clear Input
   taskInput.value = ''
-  
+
   event.preventDefault()
 }
+
+// Remove Task Function
+function removeTask(e) {
+  if (e.target.parentElement.classList.contains('delete-item')) {
+    if (confirm('Are You Sure?')) {
+      e.target.parentElement.parentElement.remove()
+    }
+  }
+}
+
+// Clear Task Function
+function clearTasks() {
+  // taskList.innerHTML = ''
+
+  // Faster
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild)
+  }
+
+  // https://jsperf.com/innerhtml-vs-removechild/47
+}
+
+
+// Filter Tasks Function
+function filterTasks(e) {
+  const text = e.target.value.toLowerCase()
+
+  document.querySelectorAll('.collection-item').forEach(function (task) {
+    const item = task.firstChild.textContent
+    if (item.toLowerCase().indexOf(text) != -1) {
+      task.style.display = 'block'
+    } else {
+      task.style.display = 'none'
+    }
+  })
+}
+
